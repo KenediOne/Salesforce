@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+    <style>
+        :root{
+            --blue:  #0085cf;
+            --white: #ffffff;
+        }
+        h1,h2,h3,h4,h5,h6,p,body{
+            margin: 0;
+        }
+        .container{
+            width: 100%;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .header{
+            background-color: var(--blue);
+            padding: 20px 50px 25px;
+        }
+        .headerLogo{
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-size: 100%;
+            margin: 35px 0 0 ;
+            padding: 70px 100px 80px;
+        }
+        .main{
+            padding: 0 45px;
+        }
+        .cards{
+            padding: 30px 5px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .card{
+            width: 100%;
+            max-width: 220px;
+            padding: 8px 20px;
+            color: var(--white);
+            background: var(--blue);
+            font-size: 20px;
+            border-radius: 9px;
+            text-align: center;
+        }
+        .blokInfo{
+            border-radius: 13px;
+            margin-top: 45px;
+            margin-bottom: 45px;
+            background: var(--blue);
+            padding: 20px 50px 20px 25px;
+
+        }
+        .blokTextInfo{
+            color: var(--white);
+            font-size: 15px;
+            text-align: center;
+
+        }
+        .blokSocial{
+            background: var(--blue);
+            text-align: center;
+            padding: 20px 0;
+        }
+        .footerText{
+            font-size: 17px;
+            padding-bottom: 15px;
+        }
+        .linkFor{
+            padding: 20px 120px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .text{
+            font-size: 14px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="header">
+        <h2 class="headerLogo">Store ^_^ Service</h2>
+    </div>
+    <main class="main">
+        <div class="container">
+            <div class="blokInfo">
+                <form th:method="POST" th:action="@{/client/oneproduct/buy}" th:object="${product}">
+                    <p class="blokTextInfo">Name product</p>
+                    <p class="blokTextInfo" th:text="${product.getName()}"></p>
+                    <br/>
+                    <p class="blokTextInfo">Description product</p>
+                    <p class="blokTextInfo" th:text="${product.getDescription()}"></p>
+                    <br/>
+                    <p class="blokTextInfo">Price product</p>
+                    <p class="blokTextInfo" th:text="${product.getPrice()}"></p>
+                    <input type="submit" value="Buy">
+                </form>
+            </div>
+</div>
+</main>
+<footer class="footer">
+
+    <div class="blokSocial">
+        <p class="footerText">Follow us on social media</p>
+    </div>
+    <div class="container">
+        <div class="linkFor">
+            <a th:href="/client/login" class="text">Log in</a>
+            <a th:href="@{/client/products}" class="text">Store ^_^ Service</a>
+            <a href="" class="text">rponurovskiy@gmail.com</a>
+        </div>
+    </div>
+</footer>
+</div>
+</body>
+</html>
